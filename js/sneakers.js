@@ -83,3 +83,29 @@ thumb3.addEventListener("click", function () {
     mainImgFixed3.classList.add("img-hidden");
     mainImgFixed4.classList.remove("img-hidden");
   });
+ /* Mostrar el valor unitario */
+let valorUnitarioAux = Intl.NumberFormat ("DE-de").format(valorUnitario)
+document.getElementById ("precioUnitario").innerHTML = "$"  + valorUnitarioAux;
+
+
+boxPlus.addEventListener("click", function () {
+let cantidad= boxCantidad.innerHTML;
+if (cantidad < 10){
+    cantidad++;
+    document.getElementById("boxCantidad").innerHTML = cantidad;
+    let valorTotalInt= cantidad *valorUnitario;
+    let valorTotalAux = Intl.NumberFormat("DE-de").format (valorTotalInt)
+    document.getElementById("valorTotal"). innerHTML = "$"  + valorTotalAux;
+}
+})
+boxMinus.addEventListener("click", function () {
+    let cantidad= boxCantidad.innerHTML;
+    if (cantidad > 0){
+        cantidad--;
+        document.getElementById("boxCantidad").innerHTML = cantidad;
+        let valorTotalInt= cantidad *valorUnitario;
+        let valorTotalAux = Intl.NumberFormat("DE-de").format (valorTotalInt)
+        document.getElementById("valorTotal"). innerHTML = "$"  + valorTotalAux;
+
+    }
+})   
